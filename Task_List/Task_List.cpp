@@ -8,6 +8,21 @@
 #include <windows.h>
 using namespace std;
 
+void print_tasks(string tasks[], int task_count)
+{
+    cout << "|--  TO DO TASKS   --|" << endl;
+    cout << "| -----------------  |" << endl;
+ 
+    for (int task = 0; task < task_count; task++)
+    {
+        cout << "Task " << task << " : " << tasks[task] << endl;
+    }
+
+
+    cout << "| -----------------  |" << endl;
+}
+
+
 int main()
 {
     string tasks[10] = {""};
@@ -20,7 +35,7 @@ int main()
     while (option != 0)
     {
         // basic ahh menu 
-        cout << "|---- TO-DO list ----|" << endl;
+        cout << "|---- TO-DO LIST ----|" << endl;
         cout << "|1 --   ADD TASK   --|" << endl;
         cout << "|2 --  VIEW TASKS  --|" << endl;
         cout << "|3 -- DELETE TASKS --|" << endl;
@@ -43,10 +58,18 @@ int main()
                 getline(cin, tasks[task_count]);
                 task_count++;
             }
+            break;
         }
-            break;
+           
         case 2:
+            print_tasks(tasks, task_count);
             break;
+        case 3:
+        {
+            int delete_task = 0;
+        }
+
+            
         default:
             break;
         }
