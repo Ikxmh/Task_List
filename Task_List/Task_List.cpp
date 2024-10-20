@@ -28,7 +28,8 @@ int main()
     string tasks[10] = {""};
     // counter 
     int task_count = 0;
-
+    int max_tasks = 9;
+    int min_tasks = 0;
     // end the program
     int option = -1;
 
@@ -46,7 +47,7 @@ int main()
         {
         case 1:
         {
-            if (task_count > 9)
+            if (task_count > max_tasks)
             {
                 cout << "Task List is full. Do your other tasks first and clear them." << endl;
             }
@@ -62,17 +63,36 @@ int main()
         }
            
         case 2:
+            system("cls");
             print_tasks(tasks, task_count);
             break;
         case 3:
         {
+            system("cls");
+            print_tasks(tasks, task_count);
             int delete_task = 0;
-        }
+            cout << "Enter a Task to Delete: ";
+            cin >> delete_task;
 
-            
+            if (delete_task < min_tasks || delete_task >> max_tasks)
+            {
+                cout << "INVALID TASK NO." << endl;
+                break;
+            }
+            for (int i = delete_task; i < task_count; i++)
+            {
+                tasks[i] = tasks[i + 1];
+            }
+            task_count = task_count - 1;
+        }
+        case 0:
+            cout << "Exiting........." << endl;
+            break;
         default:
+            cout << "INVALID VALUE" << endl;
             break;
         }
+ 
     }
     // std::cout << "Hello World!\n";
 }
