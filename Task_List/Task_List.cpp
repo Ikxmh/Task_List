@@ -2,12 +2,55 @@
 //
 
 #include <iostream>
+#include <string>
 #define NOMINMAX
-#include <Windows.h>
+
+#include <windows.h>
 using namespace std;
 
 int main()
 {
+    string tasks[10] = {""};
+    // counter 
+    int task_count = 0;
+
+    // end the program
+    int option = -1;
+
+    while (option != 0)
+    {
+        // basic ahh menu 
+        cout << "|---- TO-DO list ----|" << endl;
+        cout << "|1 --   ADD TASK   --|" << endl;
+        cout << "|2 --  VIEW TASKS  --|" << endl;
+        cout << "|3 -- DELETE TASKS --|" << endl;
+        cout << "|0 --     EXIT     --|" << endl;
+        cin >> option;
+
+        switch (option)
+        {
+        case 1:
+        {
+            if (task_count > 9)
+            {
+                cout << "Task List is full. Do your other tasks first and clear them." << endl;
+            }
+            else 
+            {
+                cout << "Enter a Task : ";
+                // ignore empty spaces
+                cin.ignore();
+                getline(cin, tasks[task_count]);
+                task_count++;
+            }
+        }
+            break;
+        case 2:
+            break;
+        default:
+            break;
+        }
+    }
     // std::cout << "Hello World!\n";
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
