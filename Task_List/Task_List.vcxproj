@@ -129,6 +129,16 @@
   <ItemGroup>
     <ClCompile Include="Task_List.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Task_List.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\ikamh\Downloads\Gartoon-Team-Gartoon-Misc-Task-Due.512.png" />
+    <Image Include="C:\Users\ikamh\Downloads\Gartoon-Team-Gartoon-Misc-Task-Due.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

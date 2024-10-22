@@ -19,4 +19,22 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Task_List.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="C:\Users\ikamh\Downloads\Gartoon-Team-Gartoon-Misc-Task-Due.512.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="C:\Users\ikamh\Downloads\Gartoon-Team-Gartoon-Misc-Task-Due.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

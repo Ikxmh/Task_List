@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #define NOMINMAX
 
@@ -15,8 +16,10 @@ void print_tasks(string tasks[], int task_count)
  
     for (int task = 0; task < task_count; task++)
     {
-        cout << "Task " << task << " : " << tasks[task] << endl;
+        cout << "| Task " << task << " : " << tasks[task] << " | " << endl;
+        
     }
+
 
 
     cout << "| -----------------  |" << endl;
@@ -33,67 +36,85 @@ int main()
     // end the program
     int option = -1;
 
-    while (option != 0)
+    ofstream task_file;
+
+    task_file.open("taskList.txt");
+
+    if (task_file.is_open())
     {
-        // basic ahh menu 
-        cout << "|---- TO-DO LIST ----|" << endl;
-        cout << "|1 --   ADD TASK   --|" << endl;
-        cout << "|2 --  VIEW TASKS  --|" << endl;
-        cout << "|3 -- DELETE TASKS --|" << endl;
-        cout << "|0 --     EXIT     --|" << endl;
-        cin >> option;
+        while (option != 0)
+        {
+            // basic ahh menu 
+            cout << "\n|---- TO-DO LIST ----|" << endl;
+            cout << "|1 --   ADD TASK   --|" << endl;
+            cout << "|2 --  VIEW TASKS  --|" << endl;
+            cout << "|3 -- DELETE TASKS --|" << endl;
+            cout << "|0 --     EXIT     --|" << endl;
+            cin >> option;
 
-        switch (option)
-        {
-        case 1:
-        {
-            if (task_count > max_tasks)
+            switch (option)
             {
-                cout << "Task List is full. Do your other tasks first and clear them." << endl;
-            }
-            else 
+            case 1:
             {
-                cout << "Enter a Task : ";
-                // ignore empty spaces
-                cin.ignore();
-                getline(cin, tasks[task_count]);
-                task_count++;
-            }
-            break;
-        }
-           
-        case 2:
-            system("cls");
-            print_tasks(tasks, task_count);
-            break;
-        case 3:
-        {
-            system("cls");
-            print_tasks(tasks, task_count);
-            int delete_task = 0;
-            cout << "Enter a Task to Delete: ";
-            cin >> delete_task;
-
-            if (delete_task < min_tasks || delete_task >> max_tasks)
-            {
-                cout << "INVALID TASK NO." << endl;
+                if (task_count > max_tasks)
+                {
+                    cout << "Task List is full. Do your other tasks first and clear them." << endl;
+                }
+                else
+                {
+                    cout << "Enter a Task : ";
+                    // ignore empty spaces
+                    cin.ignore();
+                    getline(cin, tasks[task_count]);
+                    task_count++;
+                    
+                }
                 break;
             }
-            for (int i = delete_task; i < task_count; i++)
+
+            case 2:
+                system("cls");
+                print_tasks(tasks, task_count);
+                task_file << tasks;
+                
+                
+                break;
+            case 3:
             {
-                tasks[i] = tasks[i + 1];
+                system("cls");
+                print_tasks(tasks, task_count);
+                int delete_task = 0;
+                cout << "Enter a Task to Delete: ";
+                cin >> delete_task;
+
+                if (delete_task < min_tasks || delete_task >> max_tasks)
+                {
+                    cout << "INVALID TASK NO." << endl;
+                    break;
+                }
+                for (int i = delete_task; i < task_count; i++)
+                {
+                    tasks[i] = tasks[i + 1];
+                }
+                task_count = task_count - 1;
             }
-            task_count = task_count - 1;
+            case 0:
+                cout << "Exiting........." << endl;
+                task_file.close();
+                break;
+            default:
+                cout << "INVALID VALUE" << endl;
+                break;
+            }
         }
-        case 0:
-            cout << "Exiting........." << endl;
-            break;
-        default:
-            cout << "INVALID VALUE" << endl;
-            break;
-        }
- 
     }
+    else
+    {
+        cout << "ERROR FINDING THE FILE.";
+    }
+
+
+ 
     // std::cout << "Hello World!\n";
 }
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
