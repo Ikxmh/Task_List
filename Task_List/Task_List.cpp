@@ -4,9 +4,12 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #define NOMINMAX
 
 #include <windows.h>
+
+
 using namespace std;
 
 void print_tasks(string tasks[], int task_count)
@@ -25,6 +28,38 @@ void print_tasks(string tasks[], int task_count)
     cout << "| -----------------  |" << endl;
 }
 
+static void showLoadingScreen()
+{
+    
+        Sleep(300);
+        cout << R"(_________ _______  _______  _          _       _________ _______ _________)" << "\n" << flush;
+        Sleep(300);
+        cout << R"(\__   __/(  ___  )(  ____ \| \    /\  ( \      \__   __/(  ____ \\__   __/)" << "\n" << flush;
+        Sleep(300);
+        cout << R"(   ) (   | (   ) || (    \/|  \  / /  | (         ) (   | (    \/   ) (   )" << "\n" << flush;
+        Sleep(300);
+        cout << R"(   | |   | (___) || (_____ |  (_/ /   | |         | |   | (_____    | |   )" << "\n" << flush;
+        Sleep(300);
+        cout << R"(   | |   |  ___  |(_____  )|   _ (    | |         | |   (_____  )   | |   )" << "\n" << flush;
+        Sleep(300);
+        cout << R"(   | |   | (   ) |      ) ||  ( \ \   | |         | |         ) |   | |   )" << "\n" << flush;
+        Sleep(300);
+        cout << R"(   | |   | )   ( |/\____) ||  /  \ \  | (____/\___) (___/\____) |   | |   )" << "\n" << flush;
+        Sleep(300);
+        cout << R"(   )_(   |/     \|\_______)|_/    \/  (_______/\_______/\_______)   )_(   )" << "\n" << flush;
+        Sleep(300);
+        cout << " ";
+        Sleep(300);
+        cout << R"(  ___        __  __     _        _   _   _           )" << "\n" << flush;
+        cout << R"( | _ )_  _  |  \/  |_ _| |____ _| |_| |_(_)_ _  __ _ )" << "\n" << flush;
+        cout << R"( | _ \ || | | |\/| | '_| / / _` |  _| / / | ' \/ _` |)" << "\n" << flush;
+        cout << R"( |___/\_, | |_|  |_|_| |_\_\__,_|\__|_\_\_|_||_\__, |)" << "\n" << flush;
+        cout << R"(      |__/                                     |___/ )" << "\n" << flush;
+        Sleep(1000);
+        system("cls");
+    
+}
+
 
 int main()
 {
@@ -39,6 +74,8 @@ int main()
     ofstream task_file;
 
     task_file.open("taskList.txt");
+
+    showLoadingScreen();
 
     if (task_file.is_open())
     {
