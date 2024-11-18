@@ -45,11 +45,11 @@ int main()
         while (option != 0)
         {
             // basic ahh menu 
-            cout << "\n|---- TO-DO LIST ----|" << endl;
+            cout << "|---- TO-DO LIST ----|" << endl;
             cout << "|1 --   ADD TASK   --|" << endl;
             cout << "|2 --  VIEW TASKS  --|" << endl;
             cout << "|3 -- DELETE TASKS --|" << endl;
-            cout << "|0 --     EXIT     --|" << endl;
+            cout << "|e --     EXIT     --|" << endl;
             cin >> option;
 
             switch (option)
@@ -98,7 +98,7 @@ int main()
                 }
                 task_count = task_count - 1;
             }
-            case 0:
+            case 'e':
                 cout << "Exiting........." << endl;
                 task_file.close();
                 break;
